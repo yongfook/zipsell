@@ -1,0 +1,11 @@
+= form_with model: @product do |form|
+	label Name
+	div
+		= form.text_field :name, :required => true, :placeholder => "Product name", :required => true
+
+	label Description
+	div
+		= form.text_area :description, :required => true, :placeholder => "Product description", :required => true
+
+	div
+		= form.submit :value => "Save", :data => {:disable_with => "Saving"}
