@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
 
 	def new
 		@product = Product.new
+		@product.price_currency = :usd
 	end
 
 	def create
@@ -26,7 +27,7 @@ class ProductsController < ApplicationController
 
 	  # Never trust parameters from the scary internet, only allow the white list through.
 	  def product_params
-	    params.require(:product).permit(:name, :description, :type)
+	    params.require(:product).permit(:name, :description, :type, :price, :price_currency, :price_cents)
 	  end
 
 end

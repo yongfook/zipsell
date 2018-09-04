@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_04_040211) do
+ActiveRecord::Schema.define(version: 2018_09_04_043836) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2018_09_04_040211) do
     t.string "name"
     t.text "description"
     t.string "type"
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "USD", null: false
   end
 
 end

@@ -1,11 +1,20 @@
 = form_with model: @product do |form|
+
 	label Name
 	div
-		= form.text_field :name, :required => true, :placeholder => "Product name", :required => true
+		= form.text_field :name, :required => true, :placeholder => "Product name"
+
+	label Price
+	div
+		= form.text_field :price, :required => true, :placeholder => "Product price"
+
+	label Currency
+	div 
+		= form.select :price_currency, Money::Currency.table.keys
 
 	label Description
 	div
-		= form.text_area :description, :required => true, :placeholder => "Product description", :required => true
+		= form.text_area :description, :required => true, :placeholder => "Product description"
 
 	div
 		= form.submit :value => "Save", :data => {:disable_with => "Saving"}
