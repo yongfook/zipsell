@@ -3,3 +3,6 @@ p
 p
 	i #{product.price} #{product.price.currency}
 p #{product.description}
+p Product is live: #{product.live}
+p 
+	a href="#{edit_product_path(product)}" Edit

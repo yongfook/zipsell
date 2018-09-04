@@ -1,6 +1,6 @@
 | Hello there admin user!
 
-= render Product.all
+= render Product.all.order(:created_at => "desc")
 
 p 
 	a href="#{new_product_path}" Add a new product

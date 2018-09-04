@@ -16,5 +16,9 @@
 	div
 		= form.text_area :description, :required => true, :placeholder => "Product description"
 
+	label Live
+	div 
+		= form.select :live, [true, false]
+
 	div
 		= form.submit :value => "Save", :data => {:disable_with => "Saving"}

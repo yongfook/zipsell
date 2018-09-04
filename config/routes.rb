@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :products
   get 'admin', to: 'products#dashboard', as: 'dashboard'
-
+  root 'products#shop'
 end
