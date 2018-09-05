@@ -1,1 +1,18 @@
-h2 #{product.name}
+.product class="#{cycle('dark', 'light')}"
+	.inner
+		.columns
+			.column.is-three-fifth
+				.details
+					- if product.downloadtype.present?
+						p.type #{product.downloadtype}
+					h2 #{product.name}
+					p.intro Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris malesuada, turpis quis sagittis maximus, odio lectus mattis neque, id euismod orci eros placerat ipsum.
+					.cta
+						.columns
+							.column
+								a class="button is-medium is-info is-fullwidth #{"is-inverted" if current_cycle == "dark"}" Buy for #{product.price.currency.symbol}#{product.price}
+							.column
+								a class="button is-medium is-info is-outlined is-fullwidth #{"is-inverted" if current_cycle == "dark"}" More info
+
+			.column
+				.photo

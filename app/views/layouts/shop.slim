@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title My Shop
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+
+    = stylesheet_link_tag    "application", media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag "application", 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+    meta name="description" content=""
+    meta property="og:title" content=""
+    meta property="og:description" content=""
+    //meta property="og:image" content="#{asset_url(facebookshare_image)}"
+
+  body class="shop #{controller_name} #{action_name}"
+    nav
+      .level.is-mobile
+        .level-left
+          .level-item 
+            h1 My Shop
+        .level-right
+          .level-item Something
+    = yield
