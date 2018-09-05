@@ -32,12 +32,14 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem "jquery-rails"
 gem 'devise'
 gem 'slim'
 gem "figaro"
 gem 'money-rails'
 gem "bulma-rails"
+gem 'unique_numbers', :git => "https://github.com/martinbeck/unique_numbers.git"
+gem 'stripe'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

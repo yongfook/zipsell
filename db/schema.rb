@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_05_080134) do
+ActiveRecord::Schema.define(version: 2018_09_05_093220) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 2018_09_05_080134) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "payments", force: :cascade do |t|
+    t.text "stripe_params"
+    t.text "stripe_response"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "product_id"
+    t.index ["product_id"], name: "index_payments_on_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -33,6 +42,18 @@ ActiveRecord::Schema.define(version: 2018_09_05_080134) do
     t.integer "price_cents", default: 0, null: false
     t.string "price_currency", default: "USD", null: false
     t.boolean "live", default: false
+    t.string "sku"
+  end
+
+  create_table "unique_numbers_generators", force: :cascade do |t|
+    t.string "type"
+    t.string "name"
+    t.string "format"
+    t.text "settings"
+    t.datetime "last_generated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_unique_numbers_generators_on_name"
   end
 
 end

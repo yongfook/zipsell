@@ -49,6 +49,9 @@ body.shop {
 					}
 					.cta {
 						padding-bottom: 0.8em;
+						.stripe-button-el {
+							display: none;
+						}
 						a {
 							// margin-right: 1em;
 						}
