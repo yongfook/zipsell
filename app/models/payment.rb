@@ -24,6 +24,9 @@ class Payment < ApplicationRecord
       if JSON.parse(Payment.last.stripe_response)["paid"] && JSON.parse(Payment.last.stripe_response)["paid"] == true
       	#payment successfully processed, send email with download link
       	puts "Payment success"
+
+        #send email to admin
+        ApplicationMailer.admin_new_payment(self.id).deliver
       end
     rescue => ex
       #logger.error ex.message
