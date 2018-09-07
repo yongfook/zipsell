@@ -40,6 +40,7 @@ gem 'money-rails'
 gem "bulma-rails"
 gem 'unique_numbers', :git => "https://github.com/martinbeck/unique_numbers.git"
 gem 'stripe'
+gem "letter_opener", :group => :development
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
