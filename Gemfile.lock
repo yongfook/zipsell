@@ -50,6 +50,9 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    acts_as_hashids (0.1.6)
+      activerecord (>= 4.0, < 6.0)
+      hashids (~> 1.0)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     archive-zip (0.11.0)
@@ -110,6 +113,7 @@ GEM
       thor (~> 0.14)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    hashids (1.0.4)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
@@ -264,6 +268,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_hashids
   aws-sdk (~> 2.3)
   bootsnap (>= 1.1.0)
   bulma-rails

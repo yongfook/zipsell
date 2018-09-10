@@ -3,6 +3,7 @@ class Payment < ApplicationRecord
   serialize :stripe_response
   belongs_to :product
   belongs_to :customer
+  has_many :links
   after_create :process
   validates_presence_of :product_id
 
@@ -26,6 +27,8 @@ class Payment < ApplicationRecord
       	#payment successfully processed, send email with download link
       	puts "Payment success"
 
+        self.generate_link
+
         #send email to customer
         ApplicationMailer.customer_new_payment(self.id).deliver
 
@@ -38,6 +41,11 @@ class Payment < ApplicationRecord
       puts "#{ex.message}"
     end
 
+  end
+
+  def generate_link
+    l = self.links.new(:url => self.product.s3_download_path, :expiry => Time.now + ENV['file_expiry_hours'].to_i.hours)
+    l.save
   end
 
 end

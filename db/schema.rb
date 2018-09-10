@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_10_034006) do
+ActiveRecord::Schema.define(version: 2018_09_10_072926) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 2018_09_10_034006) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "links", force: :cascade do |t|
+    t.string "url"
+    t.datetime "expiry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "payment_id"
+    t.index ["payment_id"], name: "index_links_on_payment_id"
   end
 
   create_table "payments", force: :cascade do |t|

@@ -43,6 +43,7 @@ gem 'stripe'
 gem "letter_opener", :group => :development
 gem 'paperclip', '~> 5.0.0'
 gem 'aws-sdk', '~> 2.3'
+gem "acts_as_hashids"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
