@@ -20,9 +20,10 @@
 	div
 		= form.text_area :description, :required => true, :placeholder => "Product description"
 
-	label File
-	div
-		= form.file_field :file, :required => true
+	- if !@product.file.present?
+		label File
+		div
+			= form.file_field :file, :required => true
 
 
 	label Live

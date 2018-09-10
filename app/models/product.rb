@@ -10,4 +10,8 @@ class Product < ApplicationRecord
 	validates_attachment_presence :file
 	validates_attachment_file_name :file, :matches => [/zip\Z/, /pdf\Z/]
 
+	def s3_download_path
+    file.s3_object.presigned_url("get", expires_in: 1.hour)
+  end
+
 end

@@ -2,9 +2,12 @@ class PaymentsController < ApplicationController
 
 	def create
     @product = Product.find(params[:payment][:product_id])
-    @payment = @product.payments.new(:stripe_params => params)
+    @customer = Customer.find_or_create_by(:email => params[:stripeEmail])
+    @payment = @product.payments.new(:stripe_params => params)    
+    @payment.customer = @customer
+
     respond_to do |format|
-      if @payment.save
+      if @payment.save!
         format.html { redirect_to root_path }
         format.json { render :show, status: :created, location: @payment }
       else

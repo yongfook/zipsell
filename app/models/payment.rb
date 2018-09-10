@@ -2,6 +2,7 @@ class Payment < ApplicationRecord
 	serialize :stripe_params
   serialize :stripe_response
   belongs_to :product
+  belongs_to :customer
   after_create :process
   validates_presence_of :product_id
 
@@ -24,6 +25,9 @@ class Payment < ApplicationRecord
       if JSON.parse(Payment.last.stripe_response)["paid"] && JSON.parse(Payment.last.stripe_response)["paid"] == true
       	#payment successfully processed, send email with download link
       	puts "Payment success"
+
+        #send email to customer
+        ApplicationMailer.customer_new_payment(self.id).deliver
 
         #send email to admin
         ApplicationMailer.admin_new_payment(self.id).deliver
