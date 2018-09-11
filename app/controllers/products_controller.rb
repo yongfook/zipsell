@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
 	end
 
 	def index
-		
+		@products = Product.all.order(:created_at => "desc").page params[:page]
 	end
 
 	def new

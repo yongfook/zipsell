@@ -31,6 +31,12 @@ body.admin {
 		border-top: 1px solid #EEE;
 		.item {
 			border-bottom: 1px solid #EEE;
+			.level-left .level-item {
+				padding-right: 1em;
+			}
+			.level-right .level-item {
+				padding-left: 1em;
+			}
 		}
 	}
 }

@@ -1,0 +1,14 @@
+.items
+	= render @products
+
+nav.pagination.is-centered[role="navigation" aria-label="pagination"]
+  - if link_to_previous_page(@products,'Previous')
+    = link_to_previous_page @products, 'Previous', :class => "pagination-previous"
+  - else 
+  	a.pagination-previous disabled="disabled" Previous
+
+  - if link_to_next_page(@products,'Next')
+  	= link_to_next_page @products, 'Next', :class => "pagination-next"
+  - else
+  	a.pagination-next disabled="disabled" Next
+

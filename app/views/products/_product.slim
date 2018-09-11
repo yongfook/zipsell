@@ -1,10 +1,10 @@
-p
-	strong #{product.name}
-p
-	sup #{product.sku}
-p
-	i #{product.price} #{product.price.currency}
-p #{product.description}
-p Product is live: #{product.live}
-p 
-	a href="#{edit_product_path(product)}" Edit
+.item
+	.level.is-mobile
+		.level-left
+		  .level-item 
+		  	a href="#{edit_product_path product}" #{product.name}
+		  .level-item #{product.price} #{product.price.currency}
+		.level-right
+			.level-item #{time_ago_in_words product.created_at} ago
+			.level-item 
+				span.tag.is-success Live
