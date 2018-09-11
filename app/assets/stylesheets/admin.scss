@@ -1,0 +1,27 @@
+body.admin, body.shop {
+	nav {
+		padding: 1em 2em;
+		.level {
+			&.is-mobile {
+				.level-item {
+					margin: 0;
+					h1 {
+						font-weight: bold;
+					}
+				}
+			}
+		}
+	}
+}
+
+body.admin {
+	nav ul li {
+		display: inline;
+		margin-left: 1em;
+		a {
+			&.current {
+				color: #000;
+			}
+		}
+	}
+}

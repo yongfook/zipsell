@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title My Shop
+    title #{ENV['shop_name']}
     meta name="viewport" content="width=device-width, initial-scale=1.0"
 
     = stylesheet_link_tag    "application", media: 'all', 'data-turbolinks-track' => true
@@ -18,7 +18,7 @@ html
       .level.is-mobile
         .level-left
           .level-item 
-            h1 My Shop
+            h1 #{ENV['shop_name']}
         .level-right
           .level-item Something
     = yield

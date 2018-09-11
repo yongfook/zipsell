@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title #{ENV['shop_name']} Admin
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+
+    = stylesheet_link_tag    "application", media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag "application", 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+    meta name="description" content=""
+    meta property="og:title" content=""
+    meta property="og:description" content=""
+    //meta property="og:image" content="#{asset_url(facebookshare_image)}"
+
+  body class="admin #{controller_name} #{action_name}"
+    nav
+      .level.is-mobile
+        .level-left
+          .level-item 
+            h1 #{ENV['shop_name']} Admin
+        .level-right
+          .level-item
+            ul
+              li
+                a href="#{dashboard_path}" class="#{'current' if action_name == "dashboard"}" Dashboard
+              li
+                a href="#{products_path}" class="#{'current' if controller_name == "products"}" Products
+              li
+                a href="#{customers_path}" class="#{'current' if controller_name == "customers"}" Customers
+              li
+                a href="#{payments_path}" class="#{'current' if controller_name == "payments"}" Payments
+    = yield

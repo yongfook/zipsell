@@ -1,17 +1,4 @@
 body.shop {
-	nav {
-		padding: 1em 2em;
-		.level {
-			&.is-mobile {
-				.level-item {
-					margin: 0;
-					h1 {
-						font-weight: bold;
-					}
-				}
-			}
-		}
-	}
 	.products {
 		// padding: 5em 0;
 		margin: 0 auto;

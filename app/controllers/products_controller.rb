@@ -11,6 +11,10 @@ class ProductsController < ApplicationController
 
 	end
 
+	def index
+		
+	end
+
 	def new
 		@product = Product.new
 		@product.price_currency = :usd
