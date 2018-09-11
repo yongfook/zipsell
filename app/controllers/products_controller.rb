@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
 	  @product = Product.new(product_params)
 	  respond_to do |format|
 	    if @product.save
-	      format.html { redirect_to dashboard_path }
+	      format.html { redirect_to products_path }
 	      format.json { render :show, status: :created, location: @product }
 	    else
 	      format.html { render "new" }
@@ -36,7 +36,7 @@ class ProductsController < ApplicationController
 	def update
 	  respond_to do |format|
 	    if @product.update(product_params)
-	      format.html { redirect_to dashboard_path }
+	      format.html { redirect_to products_path }
 	      format.json { render :show, status: :ok, location: @product }
 	    else
 	      format.html { render :index }

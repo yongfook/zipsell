@@ -6,6 +6,9 @@ class Payment < ApplicationRecord
   has_many :links
   after_create :process
   validates_presence_of :product_id
+  validates_uniqueness_of :number
+  has_unique_number :number, generator: :payments, type: :sequential, format: 'P#y#m#d-%i', start_value: 8, reset: :monthly
+  acts_as_hashids length: 10
 
   def process
     return if !self.stripe_response.blank?

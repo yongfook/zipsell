@@ -10,7 +10,16 @@ body.admin, body.shop {
 					}
 				}
 			}
+			.level-left .level-item {
+				padding-right: 1em;
+			}
+			.level-right .level-item {
+				padding-left: 1em;
+			}
 		}
+	}
+	nav.header {
+		border-bottom: 1px solid #EEE;
 	}
 }
 
@@ -28,15 +37,8 @@ body.admin {
 		padding: 2em;
 	}
 	.items {
-		border-top: 1px solid #EEE;
 		.item {
 			border-bottom: 1px solid #EEE;
-			.level-left .level-item {
-				padding-right: 1em;
-			}
-			.level-right .level-item {
-				padding-left: 1em;
-			}
 		}
 	}
 }

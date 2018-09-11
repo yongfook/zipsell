@@ -2,7 +2,7 @@ class PaymentsController < ApplicationController
   before_action :authenticate_admin!, :only => :index
 
   def index
-
+    @payments = Payment.all.order(:created_at => "desc").page params[:page]
   end
 
 	def create

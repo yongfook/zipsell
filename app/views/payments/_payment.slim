@@ -1,0 +1,13 @@
+.item
+	.level.is-mobile
+		.level-left
+			.level-item 
+				span.tag.is-success #{payment.product.price.currency.symbol}#{payment.product.price}
+			.level-item
+				span.tag.is-light #{payment.number}
+			.level-item 
+				a href="#{payment_path(payment)}" Payment from 
+				| &nbsp;
+				| #{payment.customer.email} for #{payment.product.name}
+		.level-right
+			.level-item #{time_ago_in_words payment.created_at} ago
