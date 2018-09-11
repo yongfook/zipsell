@@ -1,5 +1,5 @@
 body.admin, body.shop {
-	nav {
+	nav, .items .item {
 		padding: 1em 2em;
 		.level {
 			&.is-mobile {
@@ -22,6 +22,15 @@ body.admin {
 			&.current {
 				color: #000;
 			}
+		}
+	}
+	nav.pagination {
+		padding: 2em;
+	}
+	.items {
+		border-top: 1px solid #EEE;
+		.item {
+			border-bottom: 1px solid #EEE;
 		}
 	}
 }
