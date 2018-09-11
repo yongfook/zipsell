@@ -1,4 +1,9 @@
 class PaymentsController < ApplicationController
+  before_action :authenticate_admin!, :only => :index
+
+  def index
+
+  end
 
 	def create
     @product = Product.find(params[:payment][:product_id])
