@@ -5,4 +5,8 @@ class CustomersController < ApplicationController
 		@customers = Customer.all.order(:created_at => "desc").page params[:page]
 	end
 
+	def show
+		@customer = Customer.find(params[:id])
+	end
+
 end

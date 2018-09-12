@@ -23,7 +23,7 @@
 				span.tag.is-info #{@payment.product.name}
 
 .productlinks.items.nested
-	= render @payment.links
+	= render @payment.links.order(:created_at => "asc")
 
 .actionbutton
 	a.button.is-primary href="#{payment_create_and_send_new_link_path @payment}" Create & send new link
