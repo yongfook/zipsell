@@ -1,0 +1,14 @@
+.item
+	.level.is-mobile
+		.level-left
+			.level-item 
+				- if Time.now > link.expiry
+					span.tag.is-danger Expired
+				- else
+					span.tag.is-success Active
+			.level-item #{link_url link}
+		.level-right
+			- if Time.now > link.expiry
+				.level-item Expired
+			- else
+				.level-item Expires in #{distance_of_time_in_words(Time.now, link.expiry)}

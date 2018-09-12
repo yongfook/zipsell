@@ -25,8 +25,8 @@ class Payment < ApplicationRecord
         :description => "#{self.product.downloadtype} - #{self.product.name}",
         :source => token,
       )
-      self.update_attribute(:stripe_response, charge.to_json)
-      if JSON.parse(Payment.last.stripe_response)["paid"] && JSON.parse(Payment.last.stripe_response)["paid"] == true
+      self.update_attribute(:stripe_response, JSON.parse(charge.to_json))
+      if self.stripe_response["paid"] && self.stripe_response["paid"] == true
       	#payment successfully processed, send email with download link
       	puts "Payment success"
 
@@ -44,6 +44,11 @@ class Payment < ApplicationRecord
       puts "#{ex.message}"
     end
 
+  end
+
+  def generate_and_send_new_link
+    self.generate_link
+    ApplicationMailer.customer_new_link(self.id).deliver
   end
 
   def generate_link

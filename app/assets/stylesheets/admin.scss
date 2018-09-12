@@ -18,6 +18,9 @@ body.admin, body.shop {
 			}
 		}
 	}
+	.items.nested .item {
+		padding: 1em 0;
+	}
 	nav.header {
 		border-bottom: 1px solid #EEE;
 	}
@@ -40,5 +43,23 @@ body.admin {
 		.item {
 			border-bottom: 1px solid #EEE;
 		}
+	}
+	.itemdetail {
+		padding: 2em 2em 1em 2em;
+		h1 {
+			font-size: 2em;
+			font-weight: bold;
+		}
+		.metadata {
+			padding: 1em 0;
+		}
+	}
+	.productlinks {
+		border-top: 1px solid #EEE;
+		margin: 0 2em;
+	}
+	.actionbutton {
+		text-align: right;
+		padding: 2em;
 	}
 }

@@ -1,8 +1,18 @@
 class PaymentsController < ApplicationController
-  before_action :authenticate_admin!, :only => :index
+  before_action :authenticate_admin!, :except => :create
 
   def index
     @payments = Payment.all.order(:created_at => "desc").page params[:page]
+  end
+
+  def show
+    @payment = Payment.find(params[:id])
+  end
+
+  def create_and_send_new_link
+    @payment = Payment.find(params[:id])
+    @payment.generate_and_send_new_link
+    return redirect_to @payment
   end
 
 	def create

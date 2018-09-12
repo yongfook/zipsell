@@ -1,0 +1,29 @@
+.itemdetail
+	h1 #{@payment.product.price.currency.symbol}#{@payment.product.price} #{@payment.product.price.currency}
+	.metadata.field.is-grouped.is-grouped-multiline
+
+		.control
+			.tags.has-addons
+				span.tag Customer
+				span.tag.is-info #{@payment.customer.email}
+
+		.control
+			.tags.has-addons
+			  span.tag Invoice ID
+			  span.tag.is-info #{@payment.number}
+
+		.control
+			.tags.has-addons
+				span.tag Stripe ID
+				span.tag.is-info #{@payment.stripe_response["id"]}
+
+		.control
+			.tags.has-addons
+				span.tag Product
+				span.tag.is-info #{@payment.product.name}
+
+.productlinks.items.nested
+	= render @payment.links
+
+.actionbutton
+	a.button.is-primary href="#{payment_create_and_send_new_link_path @payment}" Create & send new link

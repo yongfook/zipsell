@@ -12,4 +12,9 @@ class ApplicationMailer < ActionMailer::Base
   	mail(to: @payment.customer.email, subject: "Download #{@payment.product.name} now", :from => "#{ENV['shop_name']} <#{ENV['shop_email_noreply']}>")
   end
 
+  def customer_new_link(id)
+    @payment = Payment.find(id)
+    mail(to: @payment.customer.email, subject: "New download link for #{@payment.product.name} now", :from => "#{ENV['shop_name']} <#{ENV['shop_email_noreply']}>")
+  end
+
 end
