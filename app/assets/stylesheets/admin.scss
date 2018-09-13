@@ -2,21 +2,16 @@ body.admin, body.shop {
 	nav, .items .item {
 		padding: 1em 2em;
 		.level {
-			&.is-mobile {
-				.level-item {
-					margin: 0;
-					h1 {
-						font-weight: bold;
-					}
-				}
-			}
 			.level-left .level-item {
-				padding-right: 1em;
+				padding-right: 0.5em;
 			}
 			.level-right .level-item {
-				padding-left: 1em;
+				padding-left: 0.5em;
 			}
 		}
+	}
+	nav {
+		
 	}
 	.items.nested .item {
 		padding: 1em 0;
