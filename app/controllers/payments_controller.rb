@@ -2,7 +2,10 @@ class PaymentsController < ApplicationController
   before_action :authenticate_admin!, :except => :create
 
   def index
-    @payments = Payment.all.order(:created_at => "desc").page params[:page]
+    @object_name = "Payment"
+    @search_field = :number_cont
+    @q = Payment.ransack(params[:q])
+    @payments = @q.result.order(:created_at => "desc").page params[:page]
   end
 
   def show

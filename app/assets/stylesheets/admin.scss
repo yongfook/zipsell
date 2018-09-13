@@ -44,8 +44,8 @@ body.admin {
 			border-bottom: 1px solid #EEE;
 		}
 	}
-	.itemdetail {
-		padding: 2em 2em 1em 2em;
+	.itemdetail, .pageheader {
+		padding: 1em 2em;
 		h1 {
 			font-size: 2em;
 			font-weight: bold;
@@ -53,6 +53,9 @@ body.admin {
 		.metadata {
 			padding: 1em 0;
 		}
+	}
+	.pageheader {
+		border-bottom: 1px solid #EEE;
 	}
 	.productlinks {
 		border-top: 1px solid #EEE;

@@ -12,7 +12,10 @@ class ProductsController < ApplicationController
 	end
 
 	def index
-		@products = Product.all.order(:created_at => "desc").page params[:page]
+		@object_name = "Product"
+		@search_field = :name_cont
+		@q = Product.ransack(params[:q])
+		@products = @q.result.order(:created_at => "desc").page params[:page]
 	end
 
 	def new

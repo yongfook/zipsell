@@ -2,7 +2,10 @@ class CustomersController < ApplicationController
 	before_action :authenticate_admin!
 	
 	def index
-		@customers = Customer.all.order(:created_at => "desc").page params[:page]
+    @object_name = "Customer"
+    @search_field = :email_cont
+    @q = Customer.ransack(params[:q])
+    @customers = @q.result.order(:created_at => "desc").page params[:page]
 	end
 
 	def show
