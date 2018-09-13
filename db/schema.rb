@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_11_085504) do
+ActiveRecord::Schema.define(version: 2018_09_13_042402) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 2018_09_11_085504) do
     t.integer "product_id"
     t.integer "customer_id"
     t.string "number"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "USD", null: false
     t.index ["customer_id"], name: "index_payments_on_customer_id"
     t.index ["product_id"], name: "index_payments_on_product_id"
   end

@@ -18,7 +18,7 @@ html
       .level
         .level-left
           .level-item 
-            h1 #{ENV['shop_name']} Admin
+            h1.has-text-weight-bold #{ENV['shop_name']} Admin
         .level-right
           - if current_admin
             .level-item
@@ -28,9 +28,9 @@ html
                 li
                   a href="#{products_path}" class="#{'current' if controller_name == "products" && action_name == "index"}" Products
                 li
-                  a href="#{customers_path}" class="#{'current' if controller_name == "customers"}" Customers
+                  a href="#{customers_path}" class="#{'current' if controller_name == "customers" && action_name == "index"}" Customers
                 li
-                  a href="#{payments_path}" class="#{'current' if controller_name == "payments"}" Payments
+                  a href="#{payments_path}" class="#{'current' if controller_name == "payments" && action_name == "index"}" Payments
             .level-item
               a.button.is-primary href="#{new_product_path}" Create Product
     = yield

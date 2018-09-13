@@ -7,10 +7,6 @@ class ProductsController < ApplicationController
 		render :layout => "shop"
 	end
 
-	def dashboard
-
-	end
-
 	def index
 		@object_name = "Product"
 		@search_field = :name_cont

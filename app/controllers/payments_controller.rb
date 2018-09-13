@@ -1,6 +1,10 @@
 class PaymentsController < ApplicationController
   before_action :authenticate_admin!, :except => :create
 
+  def dashboard
+    @recent_payments = Payment.order(:created_at => "desc").first(5)
+  end
+
   def index
     @object_name = "Payment"
     @search_field = :number_cont

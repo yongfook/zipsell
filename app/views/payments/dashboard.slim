@@ -1,0 +1,24 @@
+.columns.stats
+  .column
+    .card
+      p Last 7 Days
+      p.is-size-2.has-text-weight-bold $#{number_with_delimiter Payment.get_sum_for_last_n_days(7)}
+  .column
+    .card
+      p Last 30 Days
+      p.is-size-2.has-text-weight-bold $#{number_with_delimiter Payment.get_sum_for_last_n_days(30)}
+  .column
+    .card
+      p All Time
+      p.is-size-2.has-text-weight-bold $#{number_with_delimiter Payment.get_sum_for_last_n_days}
+
+
+.pageheader
+  .level
+    .level-left
+      h1 Recent payments
+
+.items
+  = render @recent_payments
+.actionbutton
+  a.button.is-primary href="#{payments_path}" View all

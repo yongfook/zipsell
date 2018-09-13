@@ -9,6 +9,7 @@ class Payment < ApplicationRecord
   validates_uniqueness_of :number
   has_unique_number :number, generator: :payments, type: :sequential, format: 'P#y#m#d-%i', start_value: 8, reset: :monthly
   acts_as_hashids length: 10
+  monetize :amount_cents
 
   def process
     return if !self.stripe_response.blank?
@@ -32,6 +33,11 @@ class Payment < ApplicationRecord
 
         self.generate_link
 
+        #update amount column
+        self.amount_cents = self.stripe_response["amount"]
+        self.amount_currency = self.stripe_response["currency"]
+        self.save
+        
         #send email to customer
         ApplicationMailer.customer_new_payment(self.id).deliver
 
@@ -54,6 +60,12 @@ class Payment < ApplicationRecord
   def generate_link
     l = self.links.new(:url => self.product.s3_download_path, :expiry => Time.now + ENV['file_expiry_hours'].to_i.hours)
     l.save
+  end
+
+  def self.get_sum_for_last_n_days(n = 0)
+    return Payment.all.sum(:amount_cents) / 100 if n == 0
+    date = Time.now - n.days
+    return Payment.where("created_at >= '#{date}'").sum(:amount_cents) / 100
   end
 
 end
