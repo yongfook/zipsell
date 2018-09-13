@@ -3,7 +3,8 @@ class ProductsController < ApplicationController
 	before_action :set_product, only: [:edit, :update]
 
 	def shop
-		@products = Product.where(:live => true).order(:created_at => "desc")
+		@q = Product.where(:live => true).ransack(params[:q])
+		@products = @q.result.order(:created_at => "desc").page params[:page]
 		render :layout => "shop"
 	end
 
