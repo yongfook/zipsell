@@ -74,4 +74,23 @@ body.admin {
 			padding: 2em 0;
 		}
 	}
+	#error_explanation {
+		margin-bottom: 1em;
+		color: #CC0000;
+	}
+}
+
+@media only screen and (max-width : 768px) {
+	body.admin {
+		.level-left + .level-right {
+			margin-top: 0.2em;
+		}
+		nav, .items .item {
+			.level {
+				.level-right .level-item {
+					padding-left: 0;
+				}
+			}
+		}
+	}
 }
