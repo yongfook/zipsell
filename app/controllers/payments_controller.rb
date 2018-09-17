@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  before_action :authenticate_admin!, :except => [:create, :success]
+  before_action :authenticate_admin!, :except => [:create, :success, :error]
 
   def dashboard
     @recent_payments = Payment.order(:created_at => "desc").first(5)
@@ -33,7 +33,7 @@ class PaymentsController < ApplicationController
         format.html { redirect_to success_path @payment }
         format.json { render :show, status: :created, location: @payment }
       else
-        format.html { render :index }
+        format.html { redirect_to error_path }
         format.json { render json: @payment.errors, status: :unprocessable_entity }
       end
     end
@@ -42,6 +42,11 @@ class PaymentsController < ApplicationController
   def success
     @q = Product.where(:live => true).ransack(params[:q])
     @payment = Payment.find(params[:id])
+    render :layout => "shop"
+  end
+
+  def error
+    @q = Product.where(:live => true).ransack(params[:q])
     render :layout => "shop"
   end
 
