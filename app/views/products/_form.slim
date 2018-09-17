@@ -1,34 +1,49 @@
-= form_with model: @product do |form|
+.form
+	= form_with model: @product do |form|
 
-	label Name
-	div
-		= form.text_field :name, :required => true, :placeholder => "Product name"
+		.field
+			label.label Name
+			.control
+				= form.text_field :name, :required => true, :placeholder => "Product name", :class => "input"
 
-	label Type
-	div
-		= form.text_field :downloadtype, :placeholder => "e.g. Ebook"
+		.field
+			label.label Price
+			.control
+				= form.text_field :price, :required => true, :placeholder => "Product price", :class => "input"
 
-	label Price
-	div
-		= form.text_field :price, :required => true, :placeholder => "Product price"
+		.field
+			label.label Currency
+			.control
+				.select
+					= form.select :price_currency, Money::Currency.table.keys
 
-	label Currency
-	div 
-		= form.select :price_currency, Money::Currency.table.keys
+		.field
+			label.label Type
+			.control
+				= form.text_field :downloadtype, :placeholder => "e.g. Ebook / PDF / Photoshop file", :class => "input"
+				p.help Help customers understand what they are buying
 
-	label Description
-	div
-		= form.text_area :description, :required => true, :placeholder => "Product description"
+		.field
+			label.label Description
+			.control
+				= form.text_area :description, :required => true, :placeholder => "Product description", :class => "textarea"
 
-	- if !@product.file.present?
-		label File
-		div
-			= form.file_field :file, :required => true
+		- if !@product.file.present?
+			.field
+				label.label File
+				.file.has-name
+					label.file-label
+						= form.file_field :file, :required => true, :class => "file-input"
+						span.file-cta
+							span.file-label Choose a file...
+						span.file-name#filename
 
 
-	label Live
-	div 
-		= form.select :live, [true, false]
+		.field
+			label.label Product is Live?
+			.control
+				.select
+					= form.select :live, [true, false]
 
-	div
-		= form.submit :value => "Save", :data => {:disable_with => "Saving"}
+		.actionbutton
+			= form.submit :value => "Save Product", :data => {:disable_with => "Saving"}, :class => "button is-primary"
