@@ -60,6 +60,21 @@ body.shop {
 			}
 		}
 	}
+	.fulldetails {
+		padding: 2em;
+		max-width: 1000px;
+		margin: 0 auto;
+		line-height: 2em;
+		h1 {
+			font-size: 2em;
+			font-weight: bold;
+			padding-bottom: 1em;
+		}
+		p {
+			font-size: 1.2em;
+			padding-bottom: 1em;
+		}
+	}
 }
 
 @media only screen and (max-width : 768px) {
@@ -70,6 +85,9 @@ body.shop {
 					padding: 2em;
 				}
 			}
+		}
+		.level-left + .level-right {
+			margin-top: 0.5em;
 		}
 	}
 }

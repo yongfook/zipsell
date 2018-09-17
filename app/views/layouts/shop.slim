@@ -14,16 +14,18 @@ html
     //meta property="og:image" content="#{asset_url(facebookshare_image)}"
 
   body class="shop #{controller_name} #{action_name}"
-    nav
+    nav.shop
       .level
         .level-left
           .level-item 
-            h1.has-text-weight-bold #{ENV['shop_name']}
+            h1.has-text-weight-bold 
+              a href="#{root_path}" #{ENV['shop_name']}
         .level-right
-          = search_form_for @q, :url => root_path do |f|
-            .field.has-addons
-              .control
-                = f.search_field :name_cont, :class => "input is-small", :placeholder => "Search #{ENV['shop_name']}"
-              .control
-                button.button.is-info.is-small Search
+          .level-item 
+            = search_form_for @q, :url => root_path do |f|
+              .field.has-addons
+                .control
+                  = f.search_field :name_cont, :class => "input is-small", :placeholder => "Search #{ENV['shop_name']}"
+                .control
+                  button.button.is-info.is-small Search
     = yield
