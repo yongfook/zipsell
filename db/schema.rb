@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_17_045951) do
+ActiveRecord::Schema.define(version: 2018_09_17_083603) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 2018_09_17_045951) do
     t.string "file_content_type"
     t.integer "file_file_size"
     t.datetime "file_updated_at"
+    t.text "intro"
   end
 
   create_table "unique_numbers_generators", force: :cascade do |t|

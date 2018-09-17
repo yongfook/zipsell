@@ -1,7 +1,10 @@
 doctype html
 html
   head
-    title #{ENV['shop_name']}
+    - if @product
+      title #{@product.name} - #{ENV['shop_name']}
+    - else
+      title #{ENV['shop_name']}
     meta name="viewport" content="width=device-width, initial-scale=1.0"
 
     = stylesheet_link_tag    "application", media: 'all', 'data-turbolinks-track' => true

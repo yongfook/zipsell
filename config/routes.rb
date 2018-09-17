@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :products
   resources :payments
   resources :links
+  get 'view/:id', to: 'products#shop_show', as: 'shop_product'
   get 'success/:id', to: 'payments#success', as: 'success'
   get 'error', to: 'payments#error', as: 'error'
   get 'admin', to: 'payments#dashboard', as: 'dashboard'

@@ -2,45 +2,53 @@
 	= form_with model: @product do |form|
 
 		.field
-			label.label Name
+			= form.label :name, :class => "label"
 			.control
 				= form.text_field :name, :required => true, :placeholder => "Product name", :class => "input"
 
 		.field
-			label.label Price
+			= form.label :price, :class => "label"
 			.control
 				= form.text_field :price, :required => true, :placeholder => "Product price", :class => "input"
 
 		.field
-			label.label Currency
+			= form.label :price_currency, "Currency", :class => "label"
 			.control
 				.select
 					= form.select :price_currency, Money::Currency.table.keys
 
 		.field
-			label.label Type
+			= form.label :downloadtype, "Type", :class => "label"
 			.control
 				= form.text_field :downloadtype, :placeholder => "e.g. Ebook / PDF / Photoshop file", :class => "input"
 				p.help Help customers understand what they are buying
 
-		.field
-			label.label Description
-			.control
-				= form.text_area :description, :required => true, :placeholder => "Product description", :class => "textarea"
-
 		- if !@product.file.present?
 			.field
-				label.label File
+				= form.label :file, :class => "label"
 				.file.has-name
 					label.file-label
 						= form.file_field :file, :required => true, :class => "file-input"
 						span.file-cta
 							span.file-label Choose a file...
 						span.file-name#filename
+				p.help Must be either a zip or pdf file
+
+		.field
+			= form.label :intro, :class => "label"
+			.control
+				= form.text_field :intro, :required => true, :maxlength => 140, :placeholder => "Product intro", :class => "input"
+				p.help A short description of this product &mdash; <span id="chars_left">140</span> characters left
 
 
 		.field
-			label.label Product is Live?
+			= form.label :description, "Full description", :class => "label"
+			.control
+				= form.text_area :description, :placeholder => "Product description", :class => "textarea"
+				p.help <i>Optional field</i> Supports markdown
+
+		.field
+			= form.label :live, "Product is live?", :class => "label"
 			.control
 				.select
 					= form.select :live, [true, false]

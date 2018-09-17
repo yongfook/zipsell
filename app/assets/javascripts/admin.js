@@ -9,4 +9,11 @@ $(document).on('turbolinks:load',function(event){
 		}
 	}
 
+	var maxLength = 140;
+	$('input#product_intro').on('change keyup paste', function() {
+	  var length = $(this).val().length;
+	  var length = maxLength-length;
+	  $('#chars_left').text(length);
+	});
+
 })

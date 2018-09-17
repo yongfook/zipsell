@@ -1,6 +1,12 @@
 class ProductsController < ApplicationController
-	before_action :authenticate_admin!, :except => :shop
-	before_action :set_product, only: [:edit, :update]
+	before_action :authenticate_admin!, :except => [:shop, :shop_show]
+	before_action :set_product, only: [:edit, :update, :shop_show]
+
+	def shop_show
+		@q = Product.where(:live => true).ransack(params[:q])
+		@markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+		render :layout => "shop"
+	end
 
 	def shop
 		@q = Product.where(:live => true).ransack(params[:q])
@@ -49,7 +55,7 @@ class ProductsController < ApplicationController
 
 	  # Never trust parameters from the scary internet, only allow the white list through.
 	  def product_params
-	    params.require(:product).permit(:name, :description, :downloadtype, :price, :price_currency, :price_cents, :live, :file)
+	    params.require(:product).permit(:name, :description, :downloadtype, :price, :price_currency, :price_cents, :live, :file, :intro)
 	  end
 
 	  # Use callbacks to share common setup or constraints between actions.

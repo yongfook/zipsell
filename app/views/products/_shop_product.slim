@@ -32,7 +32,8 @@
 									script.stripe-button src="https://checkout.stripe.com/checkout.js" data-key="#{ENV['stripe_publishable_key']}" data-amount="#{product.price_cents}" data-name="#{ENV['shop_name']}" data-description="#{product.downloadtype} - #{product.name}" data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto" data-currency="#{product.price.currency}" data-zip-code="true"
 
 							.column
-								a class="button is-medium is-info is-outlined is-fullwidth #{"is-inverted" if current_cycle == "dark"}" More info
+								- if product.description.present?
+									a class="button is-medium is-info is-outlined is-fullwidth #{"is-inverted" if current_cycle == "dark"}" href="#{shop_product_path product}" More info
 
 			.column
 				.photo
