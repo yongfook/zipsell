@@ -1,0 +1,27 @@
+#general
+shop_name: My Shop
+shop_domain: localhost:3000
+shop_email_support: test@localhost.com
+shop_email_noreply: noreply@localhost.com
+
+#email
+email_mailchimp_key: 
+
+#payments
+stripe_api_key: 
+stripe_publishable_key: 
+
+#file storage
+AWS_REGION: 
+AWS_BUCKET: 
+AWS_ACCESS_KEY_ID: 
+AWS_SECRET_ACCESS_KEY: 
+
+#file management
+file_expiry_hours: 24
+file_max_downloads: 10
+
+#
+# production:
+#   stripe_api_key: 
+#   stripe_publishable_key: 
