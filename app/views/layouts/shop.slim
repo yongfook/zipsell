@@ -31,4 +31,6 @@ html
                   = f.search_field :name_cont, :class => "input is-small", :placeholder => "Search #{ENV['shop_name']}"
                 .control
                   button.button.is-info.is-small Search
+
+    = render "layouts/notifications"
     = yield

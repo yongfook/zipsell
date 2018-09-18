@@ -33,4 +33,6 @@ html
                   a href="#{payments_path}" class="#{'current' if controller_name == "payments" && action_name == "index"}" Payments
             .level-item
               a.button.is-primary href="#{new_product_path}" Create Product
+    
+    = render "layouts/notifications"
     = yield
