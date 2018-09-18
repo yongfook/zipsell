@@ -18,8 +18,8 @@ AWS_ACCESS_KEY_ID:
 AWS_SECRET_ACCESS_KEY: 
 
 #file management
-file_expiry_hours: 24
-file_max_downloads: 10
+file_expiry_hours: "24"
+file_max_downloads: "10"
 
 #
 # production:
