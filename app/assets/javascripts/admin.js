@@ -1,13 +1,10 @@
 $(document).on('turbolinks:load',function(event){
 
-	if ($('#product_file').length) {
-		var file = document.getElementById("product_file");
-		file.onchange = function(){
-		  if(file.files.length > 0){
-				document.getElementById('filename').innerHTML = file.files[0].name;
-			}
-		}
-	}
+	$('.filepicker input').on('change', function() {
+		name = $(this)[0].files[0].name
+		$(this).parents('.filepicker').find('span.file-name').text(name)
+	});
+
 
 	var maxLength = 140;
 	$('input#product_intro').on('change keyup paste', function() {

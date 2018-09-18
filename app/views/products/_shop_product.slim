@@ -21,7 +21,7 @@
 					- if product.downloadtype.present?
 						p.type #{product.downloadtype}
 					h2 #{product.name}
-					p.intro Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris malesuada, turpis quis sagittis maximus, odio lectus mattis neque, id euismod orci eros placerat ipsum.
+					p.intro #{product.intro}
 					.cta
 						.columns
 							.column
@@ -36,4 +36,4 @@
 									a class="button is-medium is-info is-outlined is-fullwidth #{"is-inverted" if current_cycle == "dark"}" href="#{shop_product_path product}" More info
 
 			.column
-				.photo
+				.photo style="background-image: url(#{product.image.url(:large)})"

@@ -24,21 +24,44 @@
 				p.help Help customers understand what they are buying
 
 
-		= form.label :file, :class => "label"
-		.field
-			- if !@product.file.present? || params[:reupload]
+		.field.filepicker
+			= form.label :image, :class => "label"
+			- if !@product.image.present? || params[:reupload_image]
+				.file.has-name
+					label.file-label
+						= form.file_field :image, :required => true, :class => "file-input"
+						span.file-cta
+							span.file-label Choose an image...
+						span.file-name
+				p.help Must be either a jpg, gif or png
+			- else
+				.control
+					.columns
+						.column.is-one-quarter
+							figure.image 
+								img src="#{@product.image.url(:medium)}"
+							p.help 
+								a href="#{edit_product_path(:reupload_image => true)}" Upload a different image
+
+		.field.filepicker
+			= form.label :file, :class => "label"
+			- if !@product.file.present? || params[:reupload_file]
 				.file.has-name
 					label.file-label
 						= form.file_field :file, :required => true, :class => "file-input"
 						span.file-cta
 							span.file-label Choose a file...
-						span.file-name#filename
+						span.file-name
 				p.help Must be either a zip or pdf file
 			- else
 				.control
 					input type="text" class="input" disabled="disabled" value="#{@product.file_file_name}"
 					p.help 
-						a href="#{edit_product_path(:reupload => true)}" Upload a different file
+						a href="#{edit_product_path(:reupload_file => true)}" Upload a different file
+
+
+
+
 
 		.field
 			= form.label :intro, :class => "label"
