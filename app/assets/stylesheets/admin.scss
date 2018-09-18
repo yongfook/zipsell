@@ -73,6 +73,9 @@ body.admin {
 		.actionbutton {
 			padding: 2em 0;
 		}
+		#hiddenupload {
+			display: none;
+		}
 	}
 	#error_explanation {
 		margin-bottom: 1em;

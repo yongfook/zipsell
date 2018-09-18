@@ -16,4 +16,10 @@ $(document).on('turbolinks:load',function(event){
 	  $('#chars_left').text(length);
 	});
 
+	$('#reupload_link').on('click', function(event) {
+		event.preventDefault()
+		$('#reupload').hide()
+		$('#hiddenupload').show()
+	})
+
 })

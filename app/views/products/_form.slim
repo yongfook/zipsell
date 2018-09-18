@@ -23,9 +23,10 @@
 				= form.text_field :downloadtype, :placeholder => "e.g. Ebook / PDF / Photoshop file", :class => "input"
 				p.help Help customers understand what they are buying
 
-		- if !@product.file.present?
-			.field
-				= form.label :file, :class => "label"
+
+		= form.label :file, :class => "label"
+		.field.has-addons
+			- if !@product.file.present?
 				.file.has-name
 					label.file-label
 						= form.file_field :file, :required => true, :class => "file-input"
@@ -33,6 +34,20 @@
 							span.file-label Choose a file...
 						span.file-name#filename
 				p.help Must be either a zip or pdf file
+			- else
+				.control#reupload
+					input type="text" class="input" disabled="disabled" value="#{@product.file_file_name}"
+					p.help 
+						a href="#reupload_file" id="reupload_link" Upload a different file
+				#hiddenupload
+					.file.has-name
+						label.file-label
+							= form.file_field :file, :required => true, :class => "file-input"
+							span.file-cta
+								span.file-label Choose a file...
+							span.file-name#filename
+					p.help Must be either a zip or pdf file
+
 
 		.field
 			= form.label :intro, :class => "label"
