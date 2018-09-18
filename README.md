@@ -1,4 +1,4 @@
-#Local setup
+# Local setup
 
 ```
 git clone https://github.com/yongfook/zipcommerce
@@ -7,7 +7,7 @@ cd zipcommerce
 rails s
 ```
 
-#Deploying to Heroku
+# Deploying to Heroku
 
 Zipcommerce uses the [Figaro](https://github.com/laserlemon/figaro) gem to configure `ENV`.
 
