@@ -31,7 +31,7 @@
 					label.file-label
 						= form.file_field :image, :required => true, :class => "file-input"
 						span.file-cta
-							span.file-label Choose an image...
+							span.file-label Choose a product image...
 						span.file-name
 				p.help Must be either a jpg, gif or png
 			- else
@@ -41,7 +41,7 @@
 							figure.image 
 								img src="#{@product.image.url(:medium)}"
 							p.help 
-								a href="#{edit_product_path(:reupload_image => true)}" Upload a different image
+								a href="#{edit_product_path(:reupload_image => true)}" Upload a different product image
 
 		.field.filepicker
 			= form.label :file, :class => "label"

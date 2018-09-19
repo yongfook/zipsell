@@ -1,95 +1,110 @@
 body.shop {
-	.products {
-		// padding: 5em 0;
-		margin: 0 auto;
+	.stripe-button-el {
+		display: none;
+	}
+	nav {
+		padding: 2em;
+		p {
+			a {
+
+			}
+		}
+	}
+	.hero {
+		position: relative;
+		padding: 3em 0;
+		border-top: 1px solid #EEE;
+
 		.product {
-			background: #f8f8f8;
-			.inner {
-				padding: 3em 2em;
-				max-width: 1000px;
-				margin: 0 auto;
-				.photo {
-					height: 300px;
-					max-width: 400px;
-					background-color: rgba(255,255,255,0.1);
-					background-size: cover;
-					background-position: 50% 50%;
-					margin: 0 auto;
-					border-radius: 5px;
-					overflow: hidden;
-				}
-				.details {
-					color: #FFF;
-					p.type {
-						text-transform: uppercase;
-						font-size: 0.8em;
-						font-weight: bold;
-						padding-bottom: 1em;
+			max-width: 900px;
+			margin: 0 auto;
+			.column {
+				.productimage {
+					padding: 1em;
+					figure {
+						margin-top: auto;
+						box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 					}
-					h2 {
-						font-size: 2.3em;
+				}
+				.productdetails {
+					padding: 1em;
+					padding-top: 3em;
+					h1 {
+						font-size: 3em;
 						font-weight: bold;
-						padding-bottom: 0.5em;
-						line-height: 1.2em;
+						line-height: 1em;
+						padding-top: 0.3em;
+						padding-bottom: 0.3em;
+					}
+					p.downloadtype {
+						font-weight: bold;
 					}
 					p.intro {
-						padding-bottom: 1.8em;
-						font-size: 1.1em;
+						font-size: 1.5em;
+						padding-bottom: 1em;
+						line-height: 1.3em;
 					}
-					.cta {
-						padding-bottom: 0.8em;
-						.stripe-button-el {
-							display: none;
+					.buynow {
+						a.button {
+							margin-top: 1em;
 						}
-						a {
-							// margin-right: 1em;
-						}
-					}
-				}
-			}
-			&.dark {
-				background: hsl(204, 86%, 53%);
-			}
-			&.light {
-				.inner {
-					.photo {
-						background-color: #f1f1f1;
-					}
-					.details {
-						color: #000;
 					}
 				}
 			}
 		}
 	}
 	.fulldetails {
-		padding: 2em;
-		max-width: 1000px;
-		margin: 0 auto;
-		line-height: 2em;
-		h1 {
-			font-size: 2em;
-			font-weight: bold;
-			padding-bottom: 1em;
+		background: #EEE;
+		margin-bottom: -3em;
+		min-height: 5em;
+		margin-top: -7em;
+		.inner {
+			max-width: 900px;
+			margin: 0 auto;
+			padding: 6em 1em 3em 1em;
+			.markdown {
+				font-size: 1.3em;
+				p, ul, ol {
+					margin-bottom: 1em;
+				}
+			}
 		}
-		p {
-			font-size: 1.2em;
-			padding-bottom: 1em;
-		}
+	}
+	footer {
+		background: #333;
+		padding: 1em;
+		color: #FFF;
+		text-align: center;
 	}
 }
 
 @media only screen and (max-width : 768px) {
 	body.shop {
-		.products {
+		.hero {
+			padding: 1em;
 			.product {
-				.inner {
-					padding: 2em;
+				.column {
+					.productimage {
+
+						padding-bottom: 0;
+					}
+					.productdetails {
+						padding-top: 0;
+						padding-bottom: 1em;
+						h1 {
+							font-size: 2em;
+						}
+					}
 				}
 			}
 		}
-		.level-left + .level-right {
-			margin-top: 0.5em;
+		.fulldetails {
+			margin-top: 0;
+			margin-bottom: 0;
+			.inner {
+				padding: 2em;
+				padding-bottom: 1em;
+			}
 		}
 	}
 }

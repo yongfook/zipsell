@@ -21,7 +21,7 @@ html
       .level
         .level-left
           .level-item 
-            h1.has-text-weight-bold 
+            p.is-size-5
               a href="#{root_path}" #{ENV['shop_name']}
         .level-right
           .level-item 
@@ -34,3 +34,4 @@ html
 
     = render "layouts/notifications"
     = yield
+    footer Copyright &copy; #{Time.current.year} #{ENV['shop_name']}

@@ -10,13 +10,10 @@ body.admin, body.shop {
 			}
 		}
 	}
-	nav {
-
-	}
 	.items.nested .item {
 		padding: 1em 0;
 	}
-	nav.header, nav.shop {
+	nav.header {
 		border-bottom: 1px solid #EEE;
 	}
 	.notifications {

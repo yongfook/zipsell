@@ -1,39 +1,66 @@
-.product class="#{cycle('dark', 'light')}"
-	/ .modal id="product_#{product.sku}"
-	/   .modal-background
-	/   .modal-content
-	/   	.card
-	/   		.inner
-	/   			.columns
-	/   				.column
-	/   					form action="#{payments_path}" method="POST"
-	/   						button.paywithstripe.button.is-fullwidth.is-info.is-medium type="submit" Pay with Credit Card
-	/   						input type="hidden" value="#{product.id}" name="payment[product_id]"
-	/   						input type="hidden" value="#{form_authenticity_token}" name="authenticity_token"
-	/   						script.stripe-button src="https://checkout.stripe.com/checkout.js" data-key="#{ENV['stripe_publishable_key']}" data-amount="#{product.price_cents}" data-name="2412 Ltd" data-description="#{product.downloadtype} - #{product.name}" data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto" data-currency="#{product.price.currency}" data-zip-code="true"
-	/   				.column
-	/   					a.button.is-fullwidth.is-info.is-medium Pay with PayPal
-	/   button.modal-close.is-large[aria-label="close"]
-	.inner
-		.columns
-			.column.is-three-fifth
-				.details
-					- if product.downloadtype.present?
-						p.type #{product.downloadtype}
-					h2 #{product.name}
-					p.intro #{product.intro}
-					.cta
-						.columns
-							.column
-								form action="#{payments_path}" method="POST"
-									button class="paywithstripe button is-fullwidth is-info is-medium #{"is-inverted" if current_cycle == "dark"}" type="submit" Buy for #{product.price.currency.symbol}#{product.price}
-									input type="hidden" value="#{product.id}" name="payment[product_id]"
-									input type="hidden" value="#{form_authenticity_token}" name="authenticity_token"
-									script.stripe-button src="https://checkout.stripe.com/checkout.js" data-key="#{ENV['stripe_publishable_key']}" data-amount="#{product.price_cents}" data-name="#{ENV['shop_name']}" data-description="#{product.downloadtype} - #{product.name}" data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto" data-currency="#{product.price.currency}" data-zip-code="true"
+.hero
+	.overlay
+		.product
+			.columns
+				.column.is-two-fifths
+					.productimage
+						figure.image
+							a href="#{shop_product_path product}"
+								image src="#{product.image.url(:large)}"
+				.column
+					.productdetails
+						- if product.downloadtype.present?
+							p.type #{product.downloadtype}
+						h1 #{product.name}
+						p.intro #{product.intro}
 
-							.column
-								- if product.description.present?
-									a class="button is-medium is-info is-outlined is-fullwidth #{"is-inverted" if current_cycle == "dark"}" href="#{shop_product_path product}" More info
+						.buynow
+							form action="#{payments_path}" method="POST"
+								button class="paywithstripe button is-fullwidth is-info is-medium #{"is-inverted" if current_cycle == "dark"}" type="submit" Buy now for #{product.price.currency.symbol}#{product.price}
+								input type="hidden" value="#{product.id}" name="payment[product_id]"
+								input type="hidden" value="#{form_authenticity_token}" name="authenticity_token"
+								script.stripe-button src="https://checkout.stripe.com/checkout.js" data-key="#{ENV['stripe_publishable_key']}" data-amount="#{product.price_cents}" data-name="#{ENV['shop_name']}" data-description="#{product.downloadtype} - #{product.name}" data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto" data-currency="#{product.price.currency}" data-zip-code="true"
 
-			.column
-				.photo style="background-image: url(#{product.image.url(:large)})"
+
+							- if product.description.present? && action_name != "shop_show"
+								a class="button is-medium is-info is-outlined is-fullwidth" href="#{shop_product_path product}" More info
+
+/ .product
+/ 	/ .modal id="product_#{product.sku}"
+/ 	/   .modal-background
+/ 	/   .modal-content
+/ 	/   	.card
+/ 	/   		.inner
+/ 	/   			.columns
+/ 	/   				.column
+/ 	/   					form action="#{payments_path}" method="POST"
+/ 	/   						button.paywithstripe.button.is-fullwidth.is-info.is-medium type="submit" Pay with Credit Card
+/ 	/   						input type="hidden" value="#{product.id}" name="payment[product_id]"
+/ 	/   						input type="hidden" value="#{form_authenticity_token}" name="authenticity_token"
+/ 	/   						script.stripe-button src="https://checkout.stripe.com/checkout.js" data-key="#{ENV['stripe_publishable_key']}" data-amount="#{product.price_cents}" data-name="2412 Ltd" data-description="#{product.downloadtype} - #{product.name}" data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto" data-currency="#{product.price.currency}" data-zip-code="true"
+/ 	/   				.column
+/ 	/   					a.button.is-fullwidth.is-info.is-medium Pay with PayPal
+/ 	/   button.modal-close.is-large[aria-label="close"]
+/ 	.inner
+/ 		.columns
+/ 			.column.is-three-fifth
+/ 				.details
+/ 					- if product.downloadtype.present?
+/ 						p.type #{product.downloadtype}
+/ 					h2 #{product.name}
+/ 					p.intro #{product.intro}
+/ 					.cta
+/ 						.columns
+/ 							.column
+/ 								form action="#{payments_path}" method="POST"
+/ 									button class="paywithstripe button is-fullwidth is-info is-medium #{"is-inverted" if current_cycle == "dark"}" type="submit" Buy for #{product.price.currency.symbol}#{product.price}
+/ 									input type="hidden" value="#{product.id}" name="payment[product_id]"
+/ 									input type="hidden" value="#{form_authenticity_token}" name="authenticity_token"
+/ 									script.stripe-button src="https://checkout.stripe.com/checkout.js" data-key="#{ENV['stripe_publishable_key']}" data-amount="#{product.price_cents}" data-name="#{ENV['shop_name']}" data-description="#{product.downloadtype} - #{product.name}" data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto" data-currency="#{product.price.currency}" data-zip-code="true"
+
+/ 							.column
+/ 								- if product.description.present?
+/ 									a class="button is-medium is-info is-outlined is-fullwidth #{"is-inverted" if current_cycle == "dark"}" href="#{shop_product_path product}" More info
+
+/ 			.column
+/ 				.photo style="background-image: url(#{product.image.url(:large)})"
