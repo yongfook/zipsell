@@ -35,6 +35,9 @@ body.shop {
 						line-height: 1em;
 						padding-top: 0.3em;
 						padding-bottom: 0.3em;
+						a {
+							color: #000;
+						}
 					}
 					p.downloadtype {
 						font-weight: bold;
@@ -68,6 +71,22 @@ body.shop {
 					margin-bottom: 1em;
 				}
 			}
+		}
+	}
+	.success {
+		border-top: 1px solid #EEE;
+		padding: 2em;
+		padding-bottom: 1em;
+		margin: 0 auto;
+		line-height: 2em;
+		h1 {
+			font-size: 2em;
+			font-weight: bold;
+			padding-bottom: 1em;
+		}
+		p {
+			font-size: 1.2em;
+			padding-bottom: 1em;
 		}
 	}
 	footer {

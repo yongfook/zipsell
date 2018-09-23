@@ -23,7 +23,7 @@ class PaymentsController < ApplicationController
   end
 
 	def create
-    @product = Product.find(params[:payment][:product_id])
+    @product = Product.friendly.find(params[:payment][:product_id])
     @customer = Customer.find_or_create_by(:email => params[:stripeEmail])
     @payment = @product.payments.new(:stripe_params => params)    
     @payment.customer = @customer

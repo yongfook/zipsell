@@ -1,4 +1,7 @@
 class Product < ApplicationRecord
+	extend FriendlyId
+	friendly_id :name, use: :slugged
+
 	validates_presence_of :name
 	# validates_presence_of :description
 	validates_presence_of :intro
@@ -12,7 +15,7 @@ class Product < ApplicationRecord
 	validates_attachment_file_name :file, :matches => [/zip\Z/, /pdf\Z/]
 	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 	before_save :truncate_intro
-  acts_as_hashids length: 10
+  # acts_as_hashids length: 10
 
   def truncate_intro
     self.intro = self.intro[0..139]

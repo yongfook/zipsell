@@ -11,7 +11,8 @@
 					.productdetails
 						- if product.downloadtype.present?
 							p.type #{product.downloadtype}
-						h1 #{product.name}
+						h1 
+							a href="#{shop_product_path product}" #{product.name}
 						p.intro #{product.intro}
 
 						.buynow
@@ -19,7 +20,7 @@
 								button class="paywithstripe button is-fullwidth is-info is-medium #{"is-inverted" if current_cycle == "dark"}" type="submit" Buy now for #{product.price.currency.symbol}#{product.price}
 								input type="hidden" value="#{product.id}" name="payment[product_id]"
 								input type="hidden" value="#{form_authenticity_token}" name="authenticity_token"
-								script.stripe-button src="https://checkout.stripe.com/checkout.js" data-key="#{ENV['stripe_publishable_key']}" data-amount="#{product.price_cents}" data-name="#{ENV['shop_name']}" data-description="#{product.downloadtype} - #{product.name}" data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto" data-currency="#{product.price.currency}" data-zip-code="true"
+								script.stripe-button src="https://checkout.stripe.com/checkout.js" data-key="#{ENV['stripe_publishable_key']}" data-amount="#{product.price_cents}" data-name="#{ENV['shop_name']}" data-description="#{product.name}" data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto" data-currency="#{product.price.currency}" data-zip-code="true"
 
 
 							- if product.description.present? && action_name != "shop_show"

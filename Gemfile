@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+gem 'friendly_id', '~> 5.2.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+gem 'friendly_id', '~> 5.2.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+gem 'friendly_id', '~> 5.2.0'source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.1'
@@ -47,7 +47,7 @@ gem "acts_as_hashids"
 gem 'kaminari'
 gem 'ransack'
 gem 'redcarpet'
-
+gem 'friendly_id', '~> 5.2.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
