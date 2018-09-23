@@ -5,7 +5,10 @@ shop_email_support: test@localhost.com
 shop_email_noreply: noreply@localhost.com
 
 #email
-email_mailchimp_key: 
+SMTP_host: 
+SMTP_port: 
+SMTP_username: 
+SMTP_password: 
 
 #payments
 stripe_api_key: 

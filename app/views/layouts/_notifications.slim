@@ -1,6 +1,8 @@
-- if amazon_setup_is_incomplete? || stripe_setup_is_incomplete?
+- if amazon_setup_is_incomplete? || stripe_setup_is_incomplete? || email_setup_is_incomplete?
 	.notifications
 		- if amazon_setup_is_incomplete?
 			.notification.is-danger Amazon S3 config is empty in config/application.yml
 		- if stripe_setup_is_incomplete?
 			.notification.is-danger Stripe config is empty in config/application.yml
+		- if email_setup_is_incomplete?
+			.notification.is-danger Email config is empty in config/application.yml
