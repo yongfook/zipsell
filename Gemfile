@@ -37,7 +37,7 @@ gem 'devise'
 gem 'slim'
 gem "figaro"
 gem 'money-rails'
-gem "bulma-rails", "~> 0.7.1"
+gem "bulma-rails", "~> 0.7.1", :group => :assets
 gem 'unique_numbers', :git => "https://github.com/martinbeck/unique_numbers.git"
 gem 'stripe'
 gem "letter_opener", :group => :development
