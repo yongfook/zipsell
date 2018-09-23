@@ -1,15 +1,15 @@
 # Local setup
 
 ```
-git clone https://github.com/yongfook/zipcommerce
-cd zipcommerce
+git clone https://github.com/yongfook/zipdio
+cd zipdio
 ./bin/setup
 rails s
 ```
 
 # Deploying to Heroku
 
-Zipcommerce uses the [Figaro](https://github.com/laserlemon/figaro) gem to configure `ENV`.
+Zipdio uses the [Figaro](https://github.com/laserlemon/figaro) gem to configure `ENV`.
 
 During local setup above, a git-ignored config file is generated at `config/application.yml`.
 
