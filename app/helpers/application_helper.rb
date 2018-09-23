@@ -18,5 +18,6 @@ module ApplicationHelper
 		return true if !ENV['SMTP_username'] && Rails.env.production? == true
 		return true if !ENV['SMTP_password'] && Rails.env.production? == true
 	end
+	
 
 end

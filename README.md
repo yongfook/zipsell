@@ -15,14 +15,8 @@ During local setup above, a git-ignored config file is generated at `config/appl
 
 Populate this with your production config for Amazon AWS, Stripe etc. You can have environment-specific values for local, test and production - read the Figaro docs for more detail.
 
-Before deploying to Heroku for the first time, run:
+After deploying to Heroku for the first time, run:
 
 ```
 figaro heroku:set -e production
-```
-
-Then push to Heroku as you normally would:
-
-```
-git push heroku master
 ```
