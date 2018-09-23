@@ -292,7 +292,7 @@ DEPENDENCIES
   acts_as_hashids
   aws-sdk (~> 2.3)
   bootsnap (>= 1.1.0)
-  bulma-rails
+  bulma-rails (~> 0.7.1)
   byebug
   capybara (>= 2.15)
   chromedriver-helper
