@@ -1,4 +1,18 @@
-# Local setup
+# Zipsell
+
+Zipsell helps you quickly set up an online store where you can sell digital products such as ebooks, music, videos, source code etc. Zipsell handles payment processing via stripe and sends customers secure expiring links to the files they have purchased.
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+### Prerequisites
+
+Zipsell is a Ruby on Rails app. These instructions assume you have run a rails app on your local machine before.
+
+### Installing
+
+Clone the project into a local folder and run the included setup file. Then simply start your rails server.
 
 ```
 git clone https://github.com/yongfook/zipsell
@@ -7,7 +21,7 @@ cd zipsell
 rails s
 ```
 
-# Deploying to Heroku
+## Deployment on Heroku
 
 Zipsell uses the [Figaro](https://github.com/laserlemon/figaro) gem to configure `ENV`.
 
@@ -23,3 +37,12 @@ git push heroku master
 heroku run rails db:migrate
 figaro heroku:set -e production
 ```
+
+## Built With
+
+* [Ruby on Rails](https://rubyonrails.org) - The web application framework used
+* [Bulma](https://bulma.io) - The CSS framework used
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
