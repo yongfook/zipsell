@@ -1,12 +1,13 @@
 .item
 	.level.is-mobile
 		.level-left
-			.level-item 
+			.level-item.is-hidden-mobile
 				- if Time.now > link.expiry
 					span.tag.is-danger Expired
 				- else
 					span.tag.is-success Active
-			.level-item #{link_url link}
+			.level-item.is-hidden-tablet #{link.to_param}
+			.level-item.is-hidden-mobile #{link_url link}
 		.level-right
 			- if Time.now > link.expiry
 				.level-item Expired

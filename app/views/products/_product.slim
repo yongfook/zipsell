@@ -1,13 +1,13 @@
 .item
-	.level
+	.level.is-mobile
 		.level-left
-			.level-item 
+			.level-item.is-hidden-mobile
 				- if product.live == true
 					span.tag.is-success Live
 				- else
 					span.tag.is-light Draft
 			.level-item 
 				a href="#{edit_product_path product}" #{product.name}
-			.level-item #{product.price.currency.symbol}#{product.price}
+			.level-item.is-hidden-mobile #{product.price.currency.symbol}#{product.price}
 		.level-right
 			.level-item #{time_ago_in_words product.created_at} ago

@@ -1,5 +1,7 @@
 .itemdetail
-	h1 #{@payment.amount.currency.symbol}#{@payment.amount} #{@payment.amount.currency}
+	.level
+		.level-left
+			h1 #{@payment.amount.currency.symbol}#{@payment.amount} #{@payment.amount.currency}
 	.metadata.field.is-grouped.is-grouped-multiline
 
 		.control

@@ -28,9 +28,9 @@ html
             = search_form_for @q, :url => root_path do |f|
               .field.has-addons
                 .control
-                  = f.search_field :name_cont, :class => "input is-small", :placeholder => "Search #{ENV['shop_name']}"
+                  = f.search_field :name_cont, :class => "input", :placeholder => "Search #{ENV['shop_name']}"
                 .control
-                  button.button.is-info.is-small Search
+                  button.button.is-info Search
 
     = render "layouts/notifications"
     = yield

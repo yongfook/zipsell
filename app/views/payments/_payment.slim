@@ -1,11 +1,14 @@
 .item
-	.level
+	.level.is-mobile
 		.level-left
-			.level-item 
+			.level-item.is-hidden-tablet
+				a href="#{payment_path(payment)}" #{payment.number}
+
+			.level-item.is-hidden-mobile
 				span.tag.is-success #{payment.amount.currency.symbol}#{payment.amount}
-			.level-item
+			.level-item.is-hidden-mobile
 				span.tag.is-light #{payment.number}
-			.level-item 
+			.level-item.is-hidden-mobile
 				a href="#{payment_path(payment)}" Payment from 
 				| &nbsp;
 				| #{payment.customer.email} for #{payment.product.name}

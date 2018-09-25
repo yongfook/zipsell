@@ -1,23 +1,26 @@
 body.admin, body.shop {
 	nav, .items .item {
-		padding: 1em 2em;
-		.level {
-			.level-left .level-item {
-				// padding-right: 0.5em;
-			}
-			.level-right .level-item {
-				padding-left: 0.5em;
-			}
-		}
+		padding: 1em;
+		// .level {
+		// 	.level-left .level-item {
+		// 		// padding-right: 0.5em;
+		// 	}
+		// 	.level-right .level-item {
+		// 		padding-left: 0.5em;
+		// 	}
+		// }
 	}
 	.items.nested .item {
-		padding: 1em 0;
+
 	}
 	nav.header {
 		border-bottom: 1px solid #EEE;
 	}
 	.notifications {
 		padding: 1.5em 1.5em 0 1.5em;
+	}
+	.level-right .level-item {
+		margin-right: 0 !important;
 	}
 }
 
@@ -31,8 +34,38 @@ body.admin {
 			}
 		}
 	}
+	nav {
+		position: relative;
+	}
+	nav .dropdown {
+		position: absolute;
+		top: 0;
+		left: 1em;
+		height: 60%;
+		top: 20%;
+		button {
+			background-image: asset-data-url('hamburger.svg');
+			background-position: 0 50%;
+			background-size: 25px auto;
+			background-repeat: no-repeat;
+			position: absolute;
+			border: none !important;
+		}
+	}
+	nav a.hamburger {
+		display: none;
+		background-image: asset-data-url('hamburger.svg');
+		background-position: 0 50%;
+		background-size: 25px auto;
+		background-repeat: no-repeat;
+		position: absolute;
+		top: 0;
+		left: 1em;
+		height: 100%;
+		width: 60px;
+	}
 	nav.pagination {
-		padding: 2em;
+		padding: 1em;
 	}
 	.items {
 		.item {
@@ -40,13 +73,14 @@ body.admin {
 		}
 	}
 	.itemdetail, .pageheader {
-		padding: 1em 2em;
+		padding: 1em;
 		h1 {
-			font-size: 2em;
+			font-size: 1.5em;
 			font-weight: bold;
 		}
 		.metadata {
-			padding: 1em 0;
+			margin-top: -0.5em;
+			padding-bottom: 0.4em;
 		}
 	}
 	.pageheader {
@@ -54,11 +88,10 @@ body.admin {
 	}
 	.productlinks {
 		border-top: 1px solid #EEE;
-		margin: 0 2em;
 	}
 	.actionbutton {
 		text-align: right;
-		padding: 2em;
+		padding: 1em;
 	}
 	.stats {
 		padding: 2em;
@@ -69,9 +102,9 @@ body.admin {
 		}
 	}
 	.form {
-		padding: 0 2em;
+		padding: 0 1em;
 		.actionbutton {
-			padding: 2em 0;
+			padding: 1em 0;
 		}
 		#hiddenupload {
 			display: none;
@@ -85,15 +118,24 @@ body.admin {
 
 @media only screen and (max-width : 768px) {
 	body.admin {
-		.level-left + .level-right {
-			margin-top: 0.2em;
-		}
-		nav, .items .item {
-			.level {
-				.level-right .level-item {
-					padding-left: 0;
-				}
+		// nav, .items .item, nav.pagination, .actionbutton {
+		// 	padding: 1em;
+		// }
+		.pageheader {
+			padding-top: 1em;
+			padding-bottom: 1.5em;
+			.level-right {
+				margin-top: 0.5em;
 			}
+		}
+		.navigation {
+			display: none;
+		}
+		.pageheader {
+
+		}
+		.metadata {
+			text-align: center;
 		}
 	}
 }

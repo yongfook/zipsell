@@ -15,12 +15,25 @@ html
 
   body class="admin #{controller_name} #{action_name}"
     nav.header
+      .dropdown.is-hidden-tablet.is-hoverable
+        .dropdown-trigger
+          button.button[aria-haspopup="true" aria-controls="dropdown-menu"]
+        #dropdown-menu.dropdown-menu[role="menu"]
+          .dropdown-content
+            a.dropdown-item href="#{dashboard_path}" Dashboard
+            a.dropdown-item href="#{products_path}" Products
+            a.dropdown-item href="#{customers_path}" Customers
+            a.dropdown-item href="#{payments_path}" Payments
+            hr.dropdown-divider
+            = link_to 'Log out', destroy_admin_session_path, method: :delete, :class => "dropdown-item"
+
+
       .level
         .level-left
-          .level-item 
-            h1.has-text-weight-bold #{ENV['shop_name']} Admin
-        .level-right
-          - if current_admin
+          .level-item
+            p.has-text-weight-bold #{ENV['shop_name']} Admin
+        - if current_admin
+          .level-right.navigation
             .level-item
               ul
                 li
@@ -31,8 +44,9 @@ html
                   a href="#{customers_path}" class="#{'current' if controller_name == "customers" && action_name == "index"}" Customers
                 li
                   a href="#{payments_path}" class="#{'current' if controller_name == "payments" && action_name == "index"}" Payments
-            .level-item
-              a.button.is-primary href="#{new_product_path}" Create Product
+                li
+                  = link_to 'Log out', destroy_admin_session_path, method: :delete
+
     
     = render "layouts/notifications"
     = yield
