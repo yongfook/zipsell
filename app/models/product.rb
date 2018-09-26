@@ -8,8 +8,15 @@ class Product < ApplicationRecord
 	validates :price_cents, numericality: { greater_than: 0 }
 	monetize :price_cents
 	has_many :payments
-	has_attached_file :image, styles: { large: "1000x1000>", medium: "300x300>", thumb: "100x100>" }, :s3_permissions => { :original => "public-read" }
-	has_attached_file :file, :s3_headers => {"Content-Disposition" => "attachment"}
+	has_attached_file :image, 
+		styles: { large: "1000x1000>", medium: "300x300>", thumb: "100x100>" }, 
+		:s3_permissions => { :original => "public-read" },
+		:url => ':s3_alias_url',
+    :s3_host_alias => ENV['cdn_host_s3_bucket'], 
+		:path => "images/:class/:id.:style.:extension"
+	has_attached_file :file, 
+		:s3_headers => {"Content-Disposition" => "attachment"},
+    :path => "files/:class/:id.:style.:extension"
 	validates_attachment_presence :file
 	validates_attachment_presence :image
 	validates_attachment_file_name :file, :matches => [/zip\Z/, /pdf\Z/]
