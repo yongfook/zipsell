@@ -10,7 +10,7 @@ class Product < ApplicationRecord
 	has_many :payments
 	has_attached_file :image, 
 		styles: { large: "1000x1000>", medium: "300x300>", thumb: "100x100>" }, 
-		:s3_permissions => { :original => "public-read" },
+		:s3_permissions => "public-read",
 		:url => ':s3_alias_url',
     :s3_host_alias => ENV['cdn_host_s3_bucket'], 
 		:path => "images/:class/:id.:style.:extension"
