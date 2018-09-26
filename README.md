@@ -14,7 +14,7 @@ Zipsell is a Ruby on Rails app. These instructions assume you have run a rails a
 
 ### Installing
 
-Clone the project into a local folder and run the included setup file. Then simply start your rails server.
+Clone the project into a local folder and run the included setup file:
 
 ```
 git clone https://github.com/yongfook/zipsell
@@ -73,6 +73,20 @@ These should be self explanatory except for the optional `cdn host` section.
 
 **cdn_host_s3_bucket:** This is the optional Amazon Cloudfront cdn host for your S3 bucket. Use this if you want to serve uploaded image files faster. Do not include the protocol, use only the hostname e.g. `randomname.cloudfront.net`
 
+### Running locally
+
+Start your rails server:
+
+```rails s```
+
+Your shopfront is at:
+
+```http://0.0.0.0:3000```
+
+Your admin dashboard is at:
+
+```http://0.0.0.0:3000/admin```
+
 ## Deployment on Heroku
 
 To deploy to heroku for the first time:
@@ -84,7 +98,9 @@ heroku run rails db:migrate
 figaro heroku:set -e production
 ```
 
-The last line updates heroku with the `ENV` config in `config/application.yml`. You will need to run this command again if you change your production config.
+The last line updates the remote heroku server with the `ENV` config in `config/application.yml`. 
+
+You will need to run this command again if you change your production config.
 
 ## Built With
 
