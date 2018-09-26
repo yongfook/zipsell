@@ -13,10 +13,10 @@ class Product < ApplicationRecord
 		:s3_permissions => "public-read",
 		:url => ':s3_alias_url',
     :s3_host_alias => ENV['cdn_host_s3_bucket'], 
-		:path => "images/:class/:name.:style.:extension"
+		:path => "images/:class/:style.:filename"
 	has_attached_file :file, 
 		:s3_headers => {"Content-Disposition" => "attachment"},
-    :path => "files/:class/:name.:style.:extension"
+    :path => "files/:class/:filename"
 	validates_attachment_presence :file
 	validates_attachment_presence :image
 	validates_attachment_file_name :file, :matches => [/zip\Z/, /pdf\Z/]
