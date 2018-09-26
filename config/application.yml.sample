@@ -25,7 +25,8 @@ file_expiry_hours: "24"
 file_max_downloads: "10"
 
 #cdn host - optional, for faster static asset serving in production
-cdn_host: 
+cdn_host_assets: 
+cdn_host_s3_bucket: 
 
 #
 # production:
