@@ -11,10 +11,19 @@ html
     = javascript_include_tag "application", 'data-turbolinks-track' => true
     = csrf_meta_tags
 
-    meta name="description" content=""
-    meta property="og:title" content=""
-    meta property="og:description" content=""
-    //meta property="og:image" content="#{asset_url(facebookshare_image)}"
+    - if @product && controller_name == "products" && action_name == "shop_show"
+      meta name="description" content="#{@product.intro}"
+      meta property="og:title" content="#{@product.name}"
+      meta property="og:description" content="#{@product.intro}"
+      meta property="og:image" content="#{asset_url(@product.image.url(:large))}"
+
+    - if ENV['google_analytics_id'].present?
+      = javascript_include_tag "https://www.googletagmanager.com/gtag/js?id=#{ENV['google_analytics_id']}", :async => true
+      javascript:
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', "#{ENV['google_analytics_id']}");
 
   body class="shop #{controller_name} #{action_name}"
     nav.shop
