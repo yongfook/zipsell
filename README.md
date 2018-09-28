@@ -123,8 +123,12 @@ NOTE: Be sure to merge the latest from "upstream" before making a pull request!
 
 ## Built With
 
-* [Ruby on Rails](https://rubyonrails.org) - The web application framework used
-* [Bulma](https://bulma.io) - The CSS framework used
+- [Amazon S3](https://aws.amazon.com/s3/) is used as the file store. All downloadable files have non-public access rights and download links are securely signed with a configurable expiry time.
+- [Bulma](https://bulma.io) is used as the css framework.
+- [Figaro](https://github.com/laserlemon/figaro) is used to set production configuration without commiting files or storing sensitive information in databases.
+- [Heroku](https://heroku.com) is used as the production environment in my readme, although you are free to deploy it anywhere else.
+- [Ruby on Rails](https://rubyonrails.org) is used as the web application framework.
+- [Stripe](https://rubyonrails.org) is used as the payment processor. You use your own Stripe account with Zipsell and all payments go directly to you.
 
 ## License
 
