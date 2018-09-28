@@ -129,6 +129,7 @@ NOTE: Be sure to merge the latest from "upstream" before making a pull request!
 - [Bulma](https://bulma.io) is used as the css framework.
 - [Figaro](https://github.com/laserlemon/figaro) is used to set production configuration without commiting files or storing sensitive information in databases.
 - [Heroku](https://heroku.com) is used as the production environment in my readme, although you are free to deploy it anywhere else.
+- [Paperclip](https://github.com/thoughtbot/paperclip) is used for file attachments. I purposely removed Active Storage from the app as it is currently not suitable for serving files via CDN. Zipsell needs flexibility - image previews can be served from a CDN while private, downloadable files are served directly from the S3 bucket.
 - [Ruby on Rails](https://rubyonrails.org) is used as the web application framework.
 - [Stripe](https://rubyonrails.org) is used as the payment processor. You use your own Stripe account with Zipsell and all payments go directly to you.
 
