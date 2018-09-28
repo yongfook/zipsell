@@ -2,7 +2,9 @@
 
 Zipsell helps you set up an online store for selling digital products such as ebooks, music, videos, source code etc. 
 
-Zipsell handles payment processing via stripe and sends customers secure expiring Amazon S3 links to the files they have purchased. Since it is self-hosted, you receive payments directly and can avoid paying commissions or fees to 3rd party marketplaces.
+Zipsell handles payment processing via stripe and sends customers secure expiring Amazon S3 links to the files they have purchased. Since it is self-hosted, you receive payments directly and avoid paying commissions to 3rd party marketplaces.
+
+Zipsell is built with Ruby on Rails.
 
 ## Getting Started
 
