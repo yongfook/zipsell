@@ -61,6 +61,9 @@ file_max_downloads: "10"
 cdn_host_assets: 
 cdn_host_s3_bucket: 
 
+#analytics - optional, in the format UA-XXXXXXXX-XX
+google_analytics_id:
+
 #
 # production:
 #   stripe_api_key: 
