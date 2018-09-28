@@ -1,3 +1,5 @@
+![Zipsell intro](https://www.zipsell.org/images/PH/Poster1.png)
+
 # Zipsell
 
 Zipsell helps you set up an online store for selling digital products such as ebooks, music, videos, source code etc. 
