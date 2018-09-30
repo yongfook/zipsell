@@ -3,5 +3,5 @@
 	p 
 		| Your Order ID is 
 		strong #{@payment.number}
-	p We have sent you an email with a download link to your file
+	p We have sent an email to #{@payment.customer.email} with a download link to your file
 	p If you do not receive this email within a few minutes, contact us at #{ENV['shop_email_support']}
