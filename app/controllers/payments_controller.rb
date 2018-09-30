@@ -22,7 +22,7 @@ class PaymentsController < ApplicationController
     return redirect_to @payment
   end
 
-	def create
+  def create
     @product = Product.friendly.find(params[:payment][:product_id])
     @customer = Customer.find_or_create_by(:email => params[:stripeEmail])
     @payment = @product.payments.new(:stripe_params => params)    
