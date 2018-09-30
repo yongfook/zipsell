@@ -41,7 +41,7 @@ gem 'money-rails'
 gem 'unique_numbers', :git => "https://github.com/martinbeck/unique_numbers.git"
 gem 'stripe'
 gem "letter_opener", :group => :development
-gem 'paperclip', '~> 5.0.0'
+gem 'paperclip', '~> 5.2.0'
 gem 'aws-sdk', '~> 2.3'
 gem "acts_as_hashids"
 gem 'kaminari'
