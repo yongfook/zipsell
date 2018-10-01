@@ -1,0 +1,6 @@
+.item
+	.level.is-mobile
+		.level-left
+		  .level-item
+				= link_to customer.email, [:admin, customer]
+		.level-right #{time_ago_in_words customer.created_at} ago

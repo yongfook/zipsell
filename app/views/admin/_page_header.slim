@@ -1,0 +1,14 @@
+.pageheader
+  .level
+    .level-left
+      h1 #{pluralize(@q.result.size, @object_name)}
+    .level-right
+      - if controller_name == "products"
+        a.button.is-primary href="#{new_product_path}" Create Product
+      - else
+        = search_form_for [:admin, @q] do |f|
+          .field.has-addons
+            .control
+              = f.search_field @search_field, :class => "input", :placeholder => "Search #{@object_name.downcase.pluralize}"
+            .control
+              button.button.is-info Search
