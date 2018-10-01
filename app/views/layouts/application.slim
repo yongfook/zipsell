@@ -22,7 +22,7 @@ html
           .dropdown-content
             a.dropdown-item href="#{dashboard_path}" Dashboard
             a.dropdown-item href="#{products_path}" Products
-            a.dropdown-item href="#{customers_path}" Customers
+            a.dropdown-item href="#{admin_customers_path}" Customers
             a.dropdown-item href="#{payments_path}" Payments
             hr.dropdown-divider
             = link_to 'Log out', destroy_admin_session_path, method: :delete, :class => "dropdown-item"
@@ -41,12 +41,12 @@ html
                 li
                   a href="#{products_path}" class="#{'current' if controller_name == "products" && action_name == "index"}" Products
                 li
-                  a href="#{customers_path}" class="#{'current' if controller_name == "customers" && action_name == "index"}" Customers
+                  a href="#{admin_customers_path}" class="#{'current' if controller_name == "customers" && action_name == "index"}" Customers
                 li
                   a href="#{payments_path}" class="#{'current' if controller_name == "payments" && action_name == "index"}" Payments
                 li
                   = link_to 'Log out', destroy_admin_session_path, method: :delete
 
-    
+
     = render "layouts/notifications"
     = yield

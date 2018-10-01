@@ -5,7 +5,7 @@
 		.level-right
 			- if controller_name == "products"
 				a.button.is-primary href="#{new_product_path}" Create Product
-			- else 
+			- else
 				= search_form_for @q do |f|
 					.field.has-addons
 						.control
